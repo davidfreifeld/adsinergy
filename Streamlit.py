@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 @st.cache_resource
 def load_env_and_openai():
     load_dotenv()
-    return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    return OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 client = load_env_and_openai()
 
@@ -21,8 +21,8 @@ RAG_PROMPT = os.getenv("SYSTEM_PROMPT", """
                           """)
 GENERIC_PROMPT = os.getenv("SYSTEM_PROMPT", "You are a generic helpful chatbot.")
 
-RAG_PROMPT_ID = os.getenv("RAG_PROMPT_ID")
-GENERIC_PROMPT_ID = os.getenv("GENERIC_PROMPT_ID")
+RAG_PROMPT_ID = os.environ["RAG_PROMPT_ID"]
+GENERIC_PROMPT_ID = os.environ["GENERIC_PROMPT_ID"]
 
 st.title("Adminergy Chatbot Tester")
 
